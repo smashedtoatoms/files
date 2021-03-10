@@ -57,7 +57,7 @@ function configure_clpm_to_work_with_sbcl_via_roswell() {
 }
 
 function unconfigure_clpm_to_work_with_sbcl_via_roswell() {
-  echo "Removing $HOME/config/clpm/sources.conf" > /dev/stderr
+  echo "Removing $HOME/.config/clpm/sources.conf" > /dev/stderr
   rm -rf $HOME/.config/clpm/sources.conf
   echo "Removing $HOME/.config/clpm/clpm.conf" > /dev/stderr
   rm -rf $HOME/.config/clpm/clpm.conf
