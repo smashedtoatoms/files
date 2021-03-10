@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ROS_LAUNCHER_PATH="/usr/local/bin/ros-sbcl"
+ROS_LAUNCHER_PATH="/usr/local/bin/sbcl"
 
 function setup_clpm_integration() {
   local sources=$HOME/.config/clpm/sources.conf
@@ -63,8 +63,8 @@ function unconfigure_clpm_to_work_with_sbcl_via_roswell() {
   rm -rf $HOME/.config/clpm/clpm.conf
   echo "Removing $HOME/.roswell/init.lisp" > /dev/stderr
   rm -rf $HOME/.roswell/init.lisp
-  echo "Removing /usr/local/bin/ros-sbcl" > /dev/stderr
-  sudo rm -rf /usr/local/bin/ros-sbcl
+  echo "Removing /usr/local/bin/sbcl" > /dev/stderr
+  sudo rm -rf /usr/local/bin/sbcl
   echo "Removing $HOME/.config/common-lisp/source-registry.conf.d/20-clpm-client.conf" > /dev/stderr
   rm -rf $HOME/.config/common-lisp/source-registry.conf.d/20-clpm-client.conf
   echo "Done" > /dev/stderr
