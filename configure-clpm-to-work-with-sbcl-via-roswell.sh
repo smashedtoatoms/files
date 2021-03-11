@@ -13,6 +13,7 @@ function setup_asdf_clpm_client() {
   local asdf_source_registry=$HOME/.config/common-lisp/source-registry.conf.d/20-clpm-client.conf
   echo "Setting up CLPM source registry in $asdf_source_registry" > /dev/stderr
   mkdir -p $HOME/.config/common-lisp/source-registry.conf.d
+  clpm client install
   clpm client source-registry.d > $asdf_source_registry
 }
 
