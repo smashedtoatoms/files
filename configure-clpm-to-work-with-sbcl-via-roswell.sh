@@ -56,22 +56,26 @@ function configure_clpm_to_work_with_sbcl_via_roswell() {
   echo "Done" > /dev/stderr
 }
 
-function unconfigure_clpm_to_work_with_sbcl_via_roswell() {
-  echo "Removing $HOME/.config/clpm/sources.conf" > /dev/stderr
-  rm -rf $HOME/.config/clpm/sources.conf
-  echo "Removing $HOME/.config/clpm/clpm.conf" > /dev/stderr
-  rm -rf $HOME/.config/clpm/clpm.conf
+function cleanup_clpm_config_and_cache() {
+  echo "Removing $HOME/.config/clpm" > /dev/stderr
+  rm -rf $HOME/.config/clpm
+  echo "Removing $HOME/.config/common-lisp" > /dev/stderr
+  rm -rf $HOME/.config/common-lisp
+  echo "Removing $HOME/.cache/clpm" > /dev/stderr
+  rm -rf $HOME/.cache/clpm
+  echo "Removing $HOME/.cache/common-lisp" > /dev/stderr
+  rm -rf $HOME/.cache/common-lisp
+  echo "Removing $HOME/.local/share/clpm" > /dev/stderr
+  rm -rf $HOME/.local/share/clpm
   echo "Removing $HOME/.roswell/init.lisp" > /dev/stderr
   rm -rf $HOME/.roswell/init.lisp
   echo "Removing /usr/local/bin/sbcl" > /dev/stderr
   sudo rm -rf /usr/local/bin/sbcl
-  echo "Removing $HOME/.config/common-lisp/source-registry.conf.d/20-clpm-client.conf" > /dev/stderr
-  rm -rf $HOME/.config/common-lisp/source-registry.conf.d/20-clpm-client.conf
   echo "Done" > /dev/stderr
 }
 
-if [ "$1" == "unconfigure" ]; then
-    unconfigure_clpm_to_work_with_sbcl_via_roswell
+if [ "$1" == "cleanup" ]; then
+    cleanup_clpm_config_and_cache
 else
     configure_clpm_to_work_with_sbcl_via_roswell
 fi
